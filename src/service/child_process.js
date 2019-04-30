@@ -1,7 +1,7 @@
 const {spawn, exec, fork} = require('child_process');
 
 exports.create = function (pid) {
-
+    const child_process_num = 10;
     // let processExec = exec(`node ${__dirname}/child_process_entry.js ` + 3, function (error, stdout, stderr) {
     //     if (error) {
     //         console.log(error.stack);
@@ -17,7 +17,7 @@ exports.create = function (pid) {
     // });
 
     // fork
-    let child_process = 11; //config.child_process+1
+    let child_process = child_process_num + 1;
     while (--child_process > 0) {
         let processFork = fork(`${__dirname}/child_process_entry.js`, [pid, child_process]);
 
